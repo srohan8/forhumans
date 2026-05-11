@@ -1,50 +1,30 @@
-# README updates for shipping accessibility-ux
+# forhumans
 
-Four sections of the README need changes. Each is a small, targeted edit — no restructuring.
+> Claude skills built around people, not systems.
+
+A collection of open-source skills for Claude — built on one idea: **software should make sense to the humans using it, not just the people who built it.**
 
 ---
 
-## Change 1: Available skills table
+## What is a skill?
 
-**Find this block:**
+A skill is a markdown file that gives Claude deep, specialised expertise in a specific domain. Drop it into any Claude project and Claude applies it automatically — no prompting, no repeating yourself.
 
-```markdown
-| Skill | What it does | Best for |
-| --- | --- | --- |
-| [messaging-ux](https://github.com/srohan8/forhumans/blob/main/skills/messaging-ux.md) | Writes and audits all in-product copy through a human-centric lens — tooltips, errors, empty states, loading states, onboarding, notifications, pricing, and more | Anyone building a product |
-| [flow-ux](https://github.com/srohan8/forhumans/blob/main/skills/flow-ux.md) | Designs and audits user journeys — onboarding flows, error recovery, progressive disclosure, and respectful offboarding | Anyone shipping a product to non-experts |
-```
+Think of it as hiring a specialist. Not a general assistant — someone who knows exactly how to do one thing really well, every time.
 
-**Replace with:**
+---
 
-```markdown
+## Available skills
+
 | Skill | What it does | Best for |
 | --- | --- | --- |
 | [messaging-ux](https://github.com/srohan8/forhumans/blob/main/skills/messaging-ux.md) | Writes and audits all in-product copy through a human-centric lens — tooltips, errors, empty states, loading states, onboarding, notifications, pricing, and more | Anyone building a product |
 | [flow-ux](https://github.com/srohan8/forhumans/blob/main/skills/flow-ux.md) | Designs and audits user journeys — onboarding flows, error recovery, progressive disclosure, and respectful offboarding | Anyone shipping a product to non-experts |
 | [accessibility-ux](https://github.com/srohan8/forhumans/blob/main/skills/accessibility-ux.md) | Audits and fixes accessibility across cognitive load, visual, motor, screen reader, plain language, forms, and navigation — translated into plain language and concrete code | Anyone building for real humans |
-```
 
----
+More skills coming. See [Contributing](#contributing) if you want to add one.
 
-## Change 2: The Siblings section
-
-**Find this block:**
-
-```markdown
-### Siblings: messaging-ux and flow-ux
-
-[#siblings-messaging-ux-and-flow-ux](#siblings-messaging-ux-and-flow-ux)
-
-These two are designed to work together. **messaging-ux** handles what every screen *says*. **flow-ux** handles what screens *exist and in what order*. Use them together for a full UX layer, or independently for focused work.
-```
-
-**Replace with:**
-
-```markdown
 ### The trio: messaging-ux, flow-ux, accessibility-ux
-
-[#the-trio-messaging-ux-flow-ux-accessibility-ux](#the-trio-messaging-ux-flow-ux-accessibility-ux)
 
 These three are designed to work together. **messaging-ux** handles what every screen *says*. **flow-ux** handles what screens *exist and in what order*. **accessibility-ux** handles whether *everyone can actually use those screens*. Use them together for a full UX layer, or independently for focused work.
 
@@ -55,74 +35,93 @@ Each answers a different question:
 - accessibility-ux — *can everyone use this?*
 
 They never overlap — each handles a different layer of the same product.
-```
 
 ---
 
-## Change 3: Installation curl block
+## Installation
 
-**Find this block:**
+### Claude Code (recommended)
 
-```markdown
-Then add individual skills:
+Add `CLAUDE.md` to your project root — Claude Code picks it up automatically:
 
-    curl -o skills/messaging-ux.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/messaging-ux.md
-    curl -o skills/flow-ux.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/flow-ux.md
-```
+    curl -O https://raw.githubusercontent.com/srohan8/forhumans/main/CLAUDE.md
 
-**Replace with:**
-
-```markdown
 Then add individual skills:
 
     curl -o skills/messaging-ux.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/messaging-ux.md
     curl -o skills/flow-ux.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/flow-ux.md
     curl -o skills/accessibility-ux.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/accessibility-ux.md
-```
 
----
+### Claude.ai projects
 
-## Change 4: One-click copy list
+1. Open [claude.ai](https://claude.ai) → your project → **Project Settings**
+2. Click **Add Content**
+3. Copy and paste the contents of any skill file
+4. Start a conversation — Claude applies the skill automatically
 
-**Find this block:**
+### One-click copy
 
-```markdown
-Click any skill below to open the raw file — copy and paste into your Claude project:
-
-- [messaging-ux](https://raw.githubusercontent.com/srohan8/forhumans/main/skills/messaging-ux.md)
-- [flow-ux](https://raw.githubusercontent.com/srohan8/forhumans/main/skills/flow-ux.md)
-```
-
-**Replace with:**
-
-```markdown
 Click any skill below to open the raw file — copy and paste into your Claude project:
 
 - [messaging-ux](https://raw.githubusercontent.com/srohan8/forhumans/main/skills/messaging-ux.md)
 - [flow-ux](https://raw.githubusercontent.com/srohan8/forhumans/main/skills/flow-ux.md)
 - [accessibility-ux](https://raw.githubusercontent.com/srohan8/forhumans/main/skills/accessibility-ux.md)
-```
 
 ---
 
-## What stays the same
+## How it works in your project
 
-- Tagline ("Claude skills built around people, not systems.") — already covers accessibility
-- Philosophy section — already names accessibility in the closing line: *"Whether it's copy, onboarding, data, or accessibility..."*
-- Product profiles section — accessibility-ux uses the same shared profile format, no changes needed
-- Contributing section — no changes needed
-- License — no changes needed
+Skills are most powerful inside a project that contains your code. Claude will:
+
+- Infer your app's audience and tone without you having to explain
+- Audit your entire codebase, not just what you paste
+- Build a profile of your product so it gets smarter over time
 
 ---
 
-## Optional: a one-line update to the Philosophy section
+## Product profiles
 
-The README's closing philosophy line currently reads:
+Some skills support **product profiles** — small config files that store your app's specific settings (audience, tone, jargon swaps, example rewrites, accessibility level, tech stack) so Claude never asks the same questions twice.
 
-> Whether it's copy, onboarding, data, or accessibility — the output of any skill here should make things clearer, simpler, and more human for the person on the other end.
+Profiles live in a `profiles/` folder in your project. They're yours — private, never part of this shared repo. messaging-ux, flow-ux, and accessibility-ux share the same profile format, so you only set up one profile per product.
 
-This already calls out accessibility, so no change is strictly needed. But if you want it to feel less aspirational and more "this is shipped," you could change "or accessibility" to read more naturally now that there's a skill for it. Suggested:
+See `profiles/example.md` for the format.
 
-> Whether it's words, journeys, or access — the output of any skill here should make things clearer, simpler, and more human for the person on the other end.
+---
 
-This change is optional. The original line still works.
+## Contributing
+
+### Adding a new skill
+
+A good skill:
+
+- Does one thing well — focused, not general
+- Works across different products and codebases
+- Has a clear philosophy, not just a list of rules
+- Is built around the human using the product — not the system behind it
+
+To contribute:
+
+1. Fork this repo
+2. Add your skill to `skills/yourskillname.md`
+3. Open a pull request with a short description and a before/after example
+
+### Improving an existing skill
+
+See `CONTRIBUTING.md` for what each skill accepts — jargon swaps, new component or flow patterns, framework-specific accessibility patterns, domain-specific blocks, page-aware rules, and bug fixes.
+
+---
+
+## Philosophy
+
+Every skill in this repo is built on one idea:
+
+> Software should make sense to the humans using it — not just the people who built it.
+
+Whether it's words, journeys, or access — the output of any skill here should make things clearer, simpler, and more human for the person on the other end.
+
+---
+
+## License
+
+MIT — use freely, modify openly, share widely.
