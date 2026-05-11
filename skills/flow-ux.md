@@ -1,6 +1,22 @@
 ---
 name: flow-ux
-description: Designs, reviews, and audits user flows through a human-centric lens. Covers: onboarding flows, error recovery paths, progressive disclosure, feature reveal timing, offboarding and cancellation flows, exit surveys, save offers, data export, win-back patterns, multi-step journeys, and the order/logic/structure of screens. Use this skill whenever the user asks to design or improve a flow — the journey, not just the words on one screen. Trigger on: "design the onboarding", "what screens do I need", "what order should this go in", "audit my onboarding", "users are dropping off at", "design the cancellation flow", "what happens when X fails", "should I ask for this now or later", "review my signup flow", "map the journey", or any request about screen sequences, decision logic, or user paths. Also trigger when given access to a codebase and asked to improve onboarding, error handling, or cancellation. Pairs with messaging-ux: flow-ux decides what screens and in what order; messaging-ux decides what each screen says. Always use this skill when flow design, journey logic, or screen sequencing is the subject.
+description: >-
+  Designs, reviews, and audits user flows through a human-centric lens.
+  Covers — onboarding flows, error recovery paths, progressive disclosure,
+  feature reveal timing, offboarding and cancellation flows, exit surveys,
+  save offers, data export, win-back patterns, multi-step journeys, and the
+  order/logic/structure of screens. Use this skill whenever the user asks to
+  design or improve a flow — the journey, not just the words on one screen.
+  Trigger on — "design the onboarding", "what screens do I need", "what order
+  should this go in", "audit my onboarding", "users are dropping off at",
+  "design the cancellation flow", "what happens when X fails", "should I ask
+  for this now or later", "review my signup flow", "map the journey", or any
+  request about screen sequences, decision logic, or user paths. Also trigger
+  when given access to a codebase and asked to improve onboarding, error
+  handling, or cancellation. Pairs with messaging-ux — flow-ux decides what
+  screens and in what order; messaging-ux decides what each screen says.
+  Always use this skill when flow design, journey logic, or screen sequencing
+  is the subject.
 ---
 
 # Flow UX Skill

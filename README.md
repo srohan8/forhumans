@@ -4,7 +4,6 @@
 
 A collection of open-source skills for Claude — built on one idea: **software should make sense to the humans using it, not just the people who built it.**
 
-
 ---
 
 ## What is a skill?
@@ -18,10 +17,15 @@ Think of it as hiring a specialist. Not a general assistant — someone who know
 ## Available skills
 
 | Skill | What it does | Best for |
-|-------|-------------|----------|
-| [messaging-ux](./skills/messaging-ux.md) | Writes and audits all in-product copy through a human-centric lens — tooltips, errors, empty states, loading states, onboarding, notifications, pricing, and more | Anyone building a product |
+| --- | --- | --- |
+| [messaging-ux](https://github.com/srohan8/forhumans/blob/main/skills/messaging-ux.md) | Writes and audits all in-product copy through a human-centric lens — tooltips, errors, empty states, loading states, onboarding, notifications, pricing, and more | Anyone building a product |
+| [flow-ux](https://github.com/srohan8/forhumans/blob/main/skills/flow-ux.md) | Designs and audits user journeys — onboarding flows, error recovery, progressive disclosure, and respectful offboarding | Anyone shipping a product to non-experts |
 
 More skills coming. See [Contributing](#contributing) if you want to add one.
+
+### Siblings: messaging-ux and flow-ux
+
+These two are designed to work together. **messaging-ux** handles what every screen *says*. **flow-ux** handles what screens *exist and in what order*. Use them together for a full UX layer, or independently for focused work.
 
 ---
 
@@ -31,14 +35,15 @@ More skills coming. See [Contributing](#contributing) if you want to add one.
 
 Add `CLAUDE.md` to your project root — Claude Code picks it up automatically:
 
-```bash
+```
 curl -O https://raw.githubusercontent.com/srohan8/forhumans/main/CLAUDE.md
 ```
 
 Then add individual skills:
 
-```bash
+```
 curl -o skills/messaging-ux.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/messaging-ux.md
+curl -o skills/flow-ux.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/flow-ux.md
 ```
 
 ### Claude.ai projects
@@ -53,6 +58,7 @@ curl -o skills/messaging-ux.md https://raw.githubusercontent.com/srohan8/forhuma
 Click any skill below to open the raw file — copy and paste into your Claude project:
 
 - [messaging-ux](https://raw.githubusercontent.com/srohan8/forhumans/main/skills/messaging-ux.md)
+- [flow-ux](https://raw.githubusercontent.com/srohan8/forhumans/main/skills/flow-ux.md)
 
 ---
 
@@ -70,7 +76,7 @@ Skills are most powerful inside a project that contains your code. Claude will:
 
 Some skills support **product profiles** — small config files that store your app's specific settings (audience, tone, jargon swaps, example rewrites) so Claude never asks the same questions twice.
 
-Profiles live in a `profiles/` folder in your project. They're yours — private, never part of this shared repo.
+Profiles live in a `profiles/` folder in your project. They're yours — private, never part of this shared repo. messaging-ux and flow-ux share the same profile format, so you only set up one profile per product.
 
 See `profiles/example.md` for the format.
 
@@ -81,12 +87,14 @@ See `profiles/example.md` for the format.
 ### Adding a new skill
 
 A good skill:
+
 - Does one thing well — focused, not general
 - Works across different products and codebases
 - Has a clear philosophy, not just a list of rules
 - Is built around the human using the product — not the system behind it
 
 To contribute:
+
 1. Fork this repo
 2. Add your skill to `skills/yourskillname.md`
 3. Open a pull request with a short description and a before/after example
