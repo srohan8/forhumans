@@ -421,10 +421,12 @@ Tables:
 - Empty table: same rule as empty states — explain what will appear and how to get started
 
 Tooltips on metrics:
-- Every metric card or number that isn't immediately obvious needs a tooltip
-- Format: what it measures + why it matters
-- ✅ "Views — How many people looked at your page. Higher = more interest."
-- ✅ "Conversion rate — Out of everyone who visited, how many took action. Industry average is around 2–3%."
+- Every metric card or number that isn't immediately obvious needs help text
+- Follow the 60-character rule: short explanation inline, full explanation behind read more
+- Short (≤60 chars): what it measures in plain words
+- Long (read more, only if needed): what it measures + why it matters + benchmark or typical range
+- ✅ Short: "How many visitors actually took action"
+- ✅ Long: "Out of everyone who visited, how many did the thing you wanted — signed up, purchased, clicked. A typical rate is 2–5%."
 
 Summary / insight lines:
 - If the dashboard can surface one takeaway, do it in plain language at the top
@@ -438,6 +440,151 @@ Summary / insight lines:
 - Save progress automatically — and tell the user you did: "Draft saved"
 - Required fields: mark the optional ones, not the required ones (most fields are required — flagging the few that aren't is cleaner)
 - At the end of a form, confirm what will happen: "We'll send an invoice to jane@acme.com for $1,200"
+
+#### List & Table Views
+The screen users spend most of their time on. Invoices, contacts, orders, projects — all lists.
+
+Column headers:
+- Plain words, not database fields: "Customer" not "account_id", "Created" not "created_at"
+- If a column isn't obvious, a tooltip on the header: "Last active — When they last opened the app"
+
+Status labels:
+- Every status needs to be self-explanatory — not just a color or a single word
+- ❌ "Pending" ✅ "Waiting for payment"
+- ❌ "Active" ✅ "Live — visible to customers"
+- ❌ "Failed" ✅ "Payment failed — retry or contact customer"
+- Use color + text together, never color alone
+
+Empty list:
+- Same empty state rules apply — what will appear here, why it matters, one CTA
+- ❌ "No results." ✅ "No invoices yet. Create your first one to start getting paid. → Create invoice"
+
+Bulk actions:
+- Say what will happen and to how many: "Delete 3 invoices" not just "Delete selected"
+- Destructive bulk actions need a confirmation with the count: "Permanently delete 3 invoices? This can't be undone."
+
+Filtering & sorting:
+- Filter labels should describe the outcome: "Show only unpaid" not "Filter: status = unpaid"
+- When filters are active, tell the user clearly: "Showing 12 of 48 invoices (filtered by: unpaid)"
+- Clear all filters should be obvious and one click away
+
+Timestamps:
+- Relative for recent: "3 hours ago", "Yesterday"
+- Absolute for older: "May 11, 2026"
+- Never raw ISO: "2026-05-11T14:30:00Z" is not for humans
+- Tooltip on relative timestamps showing the full date/time
+
+Pagination:
+- "Showing 1–20 of 148" not "Page 1 of 8"
+- If there's a lot of data, help the user find what they need: "Looking for something specific? Try search."
+
+#### Detail / Single Item View
+Invoice detail, order detail, contact card, project page — the screen where users take action on one thing.
+
+Status bar:
+- Current status should be prominent and explained — not just a badge
+- ❌ Status badge: "Draft" ✅ "Draft — only you can see this. Publish to make it live."
+- Show the journey: where this item has been and what's next
+- ✅ "Created → Sent → Opened → Waiting for payment"
+
+Metadata:
+- Translate system fields into human language
+- ❌ "created_at: 2026-05-11" ✅ "Created on May 11, 2026"
+- ❌ "assignee_id: usr_482" ✅ "Assigned to Sarah"
+- Group related info visually — don't just list every field the database has
+
+Action buttons:
+- Primary action should be the most likely next step: if it's a draft invoice, primary = "Send"
+- Secondary actions can be less prominent but still clearly labeled
+- Destructive actions at the bottom, visually separated
+
+Related items:
+- Show connections in plain language: "3 payments received for this invoice"
+- Link to related items with context, not just IDs
+
+Empty sections within a detail view:
+- ❌ "No notes." ✅ "No notes yet. Add one to keep track of this project."
+
+#### Profile & Account Pages
+Where users manage their identity. Full of fields that seem obvious to the developer but confuse users.
+
+Public vs private:
+- Every field should indicate who can see it
+- ✅ "Display name — shown on your public profile"
+- ✅ "Email — only visible to you and your team"
+- Don't assume users know what's shared and what's not
+
+Avatar / photo:
+- Explain the requirements before they fail: "Square image, at least 200×200px. JPG or PNG."
+- Show a preview immediately after upload
+
+Connected accounts:
+- ❌ "OAuth connections" ✅ "Connected accounts"
+- Show what each connection does: "Google — used for sign-in and calendar sync"
+- Disconnect should explain the consequence: "Disconnect Google? You'll need to set a password first."
+
+Danger zone:
+- Delete account, export data, deactivate — group these separately
+- Each needs a clear explanation of what happens, not just the button
+- ✅ "Delete your account — removes all your data, projects, and history permanently. This can't be undone."
+- Offer the alternative: "Want a break instead? → Deactivate (you can come back later)"
+
+#### Notification Center & Activity Feed
+In-app notifications — the screen most products build and then forget about.
+
+Notification text:
+- Lead with what happened, not who did it
+- ❌ "User john@acme.com performed action on Invoice #1042"
+- ✅ "Your invoice to Acme Corp was opened — follow up now?"
+- One notification = one piece of information + one possible action
+
+Timestamps:
+- Same rules as list views — relative for recent, absolute for older
+- Group by day: "Today", "Yesterday", "Last week" — not a flat chronological list
+
+Empty notification center:
+- ❌ "No notifications."
+- ✅ "Nothing new. We'll let you know when something needs your attention."
+
+Read / unread:
+- Visual distinction should be subtle — bold vs normal weight, not flashy colors
+- "Mark all as read" should be easy to find but not the primary action
+
+Actionable vs informational:
+- If the notification needs action, make the action obvious: "Invoice overdue → Send a reminder"
+- If it's just informational, don't force a click: the notification text should contain the full update
+
+#### Checkout & Payment Flows
+The highest-anxiety flow in any product. Every unclear word costs money.
+
+Price display:
+- Always show what they're paying and what they're getting on the same screen
+- Line items in plain language: "Pro plan — monthly" not "SKU_PRO_MO_V2"
+- If there's tax, show it before the final step — no surprises at the end
+- Total should be unmissable: largest text on the page
+
+Trial-to-paid transition:
+- Remind them what they've been using: "You've created 12 projects and sent 8 invoices on your trial"
+- Remind them what they'll lose without paying: "Without Pro, these go read-only tomorrow"
+- Never: "Your trial has expired." Always: "Your trial ended — pick a plan to keep going."
+
+Billing frequency:
+- Show the math: "Pro plan — $29/month" and also "$348/year (save $60)" on the same line
+- Default to whatever saves them money — but let them switch easily
+
+Security reassurance:
+- Near the payment button: "Encrypted and secure. We never store your card details."
+- Show recognizable trust signals: card brand logos, SSL badge if relevant
+- Don't overdo it — one line of reassurance, not three paragraphs
+
+Confirmation:
+- After payment, confirm everything: what they bought, when it starts, what happens next
+- ✅ "You're on Pro! Your first bill is June 11. Here's what you just unlocked."
+- Include a receipt link or email confirmation notice
+
+Refund / cancellation policy:
+- Visible before they pay, not hidden in terms
+- Plain language: "Cancel any time. We'll refund unused days." not "Pro-rated refunds subject to terms."
 
 ---
 
