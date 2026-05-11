@@ -166,9 +166,55 @@ Profiles are per-project and never bundled into the shared skill file.
 
 ### Help Text (below a field)
 - Answers: *"What should I put here, and in what format?"*
-- Keep under 12 words ideally. Examples beat explanations: `e.g. hello@yourcompany.com`
+- Examples beat explanations: `e.g. hello@yourcompany.com`
 - Show it always — don't hide behind hover for important fields
 - Example → `Your business name as it appears on invoices`
+
+### Help Text Length Rules
+
+**Inline help text: 60 characters max. Always visible. No exceptions.**
+
+Anything that needs more explanation must have a "read more" path — one interaction
+away. The UI pattern (expandable, drawer, modal) is the developer's call. The rule
+is: short inline, full explanation accessible.
+
+**Short and long versions are written separately — never truncate.**
+
+By default, only write the short version (≤60 chars). Write the long version too when:
+- The user asks for "read more" text or full explanations
+- The product profile specifies it
+- The concept is genuinely complex and 60 chars can't cover it safely (e.g. a setting with serious consequences)
+
+The short version is not the first sentence of the long version chopped off.
+Each is written specifically for its format.
+
+Example — metric: Conversion rate
+```
+SHORT (inline, ≤60 chars):
+How many visitors actually took action
+
+LONG (read more):
+Out of everyone who visited your page, this is the percentage
+who did the thing you wanted — signed up, purchased, clicked.
+A typical rate is 2–5%. Yours is calculated over the last 30 days.
+```
+
+Example — setting: Retry limit
+```
+SHORT (inline, ≤60 chars):
+How many times we'll try before giving up
+
+LONG (read more):
+When a request fails, we'll automatically retry it this many
+times before marking it as failed. Higher numbers mean more
+chances to succeed, but longer wait times. The default (3) works
+for most cases.
+```
+
+When writing both versions:
+- Short: one plain sentence, outcome-focused, no jargon
+- Long: 2–4 sentences, adds the why, the context, and a benchmark or default if relevant
+- Long version should sound natural read aloud — no abbreviations, no parenthetical asides, spell out numbers
 
 ### Placeholders (inside a field)
 - Hint, don't instruct — they disappear when typing starts
@@ -281,6 +327,117 @@ These are where users hesitate most. Every word counts.
 - Avoid: "guys", "blacklist/whitelist" — use "everyone", "blocklist/allowlist"
 - Color alone should never convey meaning — always pair with text or icon
 - Error messages must be readable without seeing the red color
+
+---
+
+## Page-Aware Mode
+
+**When working inside a codebase, detect what page or screen the user is working on
+and apply the right patterns automatically.** Don't wait to be told — read the file,
+recognise the page type, and switch to the relevant rules.
+
+### How to detect the page type
+
+Read the file being worked on. Look at:
+- Route name or URL path (`/settings`, `/dashboard`, `/search`, `/onboarding`)
+- Component name (`SettingsPage`, `SearchResults`, `EmptyDashboard`, `PermissionDenied`)
+- Content patterns — forms with toggles = settings, charts = dashboard, "no results" = search
+
+### Page-specific rules
+
+Once you know the page type, apply these rules **on top of** the general Component Playbook:
+
+#### Settings & Configuration Pages
+The graveyard of jargon. Every toggle, dropdown, and input here was named by a developer.
+- Every setting needs a label + one-sentence explanation of what it actually changes
+- Group settings by what the user is trying to do, not by system category
+  - ❌ "API Settings", "Notification Settings", "Account Settings"
+  - ✅ "Connections", "What you get notified about", "Your account"
+- Toggles need to say what happens when ON, not just what the thing is
+  - ❌ "Email notifications" [toggle]
+  - ✅ "Email notifications" [toggle] — "Get an email when someone views your proposal"
+- Dangerous settings (delete account, revoke access) should be visually separated and have confirmation dialogs
+- If a setting has no effect until the user does something else, say so: "Takes effect next time you publish"
+
+#### Search & Zero-Result States
+"No results found" is the laziest message in software. Users feel stuck.
+- Always suggest what to do next — broaden search, check spelling, try different terms
+- If possible, show related or popular items instead of emptiness
+- Preserve the search query in the UI so they can edit, not retype
+- Different zero-result messages for different causes:
+  - Nothing matches: "No matches for '[query]'. Try fewer or different words."
+  - Filters too narrow: "No results with these filters. Remove some to see more."
+  - Empty category: "Nothing here yet. [CTA to add something]"
+- Search placeholder should hint at what's searchable: `Search invoices, clients, or amounts...`
+
+#### Permission & Access Denied Screens
+"You don't have access" tells the user nothing. These moments feel like a slammed door.
+- Always explain WHY they don't have access in plain language
+- Always tell them HOW to get access — who to ask, what to do
+- Never just show a lock icon with no words
+- Match the tone to the situation:
+  - Wrong plan: "This is available on the Pro plan. You're on Free. → See what Pro includes"
+  - Wrong role: "Only admins can change this. Ask [admin name] to update it, or request admin access."
+  - Expired: "Your access expired on [date]. Renew to pick up where you left off."
+  - Not logged in: "Sign in to see this page."
+- Never make the user feel like they did something wrong — they just arrived at the wrong door
+
+#### Dashboard, Analytics & Data Pages
+Numbers without context are meaningless. Most dashboards are built for the person
+who wrote the query, not the person reading the result.
+
+**The core rule: every number needs a sentence that tells the user what it means for them.**
+
+Metric labels:
+- Name the outcome, not the metric: "How many people visited" not "Sessions"
+- ❌ "MRR" ✅ "Monthly revenue" ✅ "What you earned this month"
+- ❌ "DAU/MAU" ✅ "How often people come back"
+- ❌ "Churn rate" ✅ "How many customers you lost"
+- ❌ "Bounce rate" ✅ "People who left without doing anything"
+- ❌ "LTV" ✅ "What a customer is worth over time"
+- ❌ "P95 latency" ✅ "Slowest load time (for 95% of users)"
+
+Context over absolutes:
+- Always show relative context: "Up 23% from last week" > just "1,234"
+- Comparisons make numbers meaningful: "You're ahead of last month's pace"
+- If a number is good or bad, say so — don't make the user guess: "⬆ 12% — that's your best week yet"
+- Timeframes should be visible and plain: "Last 30 days" not "30d" or "T-30"
+
+Zero-state metrics:
+- Don't just show 0 or a dash — explain what will appear here
+- ❌ "Revenue: $0.00" ✅ "No revenue yet. This updates when you get your first payment."
+- ❌ "—" ✅ "Not enough data yet — check back after your first week"
+
+Charts and graphs:
+- Title = what the chart answers: "How your traffic changed this month" not "Traffic — 30d"
+- Y-axis labels in human units: "visits" not "sessions", "dollars" not "USD (cents)"
+- Highlight the insight, not just the data: annotate spikes, dips, milestones
+- If a chart is empty, don't show an empty chart — show an encouraging empty state with the CTA that will generate data
+
+Tables:
+- Column headers should be plain words: "Customer" not "account_id", "Signed up" not "created_at"
+- Format numbers for readability: "1,234" not "1234", "$12.50" not "12.5"
+- Dates in human format: "May 11, 2026" or "3 days ago" — never "2026-05-11T00:00:00Z"
+- Empty table: same rule as empty states — explain what will appear and how to get started
+
+Tooltips on metrics:
+- Every metric card or number that isn't immediately obvious needs a tooltip
+- Format: what it measures + why it matters
+- ✅ "Views — How many people looked at your page. Higher = more interest."
+- ✅ "Conversion rate — Out of everyone who visited, how many took action. Industry average is around 2–3%."
+
+Summary / insight lines:
+- If the dashboard can surface one takeaway, do it in plain language at the top
+- ✅ "Your best day this week was Tuesday. Most visitors came from LinkedIn."
+- ✅ "Revenue is flat — you haven't sent any invoices this week."
+- This is the most human-centric thing a dashboard can do: tell me what I should know without making me read every chart
+
+#### Forms & Multi-Step Flows
+- Show total steps only if it's 3+ steps. For 2 steps, just show "Next" and "Done"
+- Each step title should name the goal, not the system's need: "Tell us about your business" not "Company Information"
+- Save progress automatically — and tell the user you did: "Draft saved"
+- Required fields: mark the optional ones, not the required ones (most fields are required — flagging the few that aren't is cleaner)
+- At the end of a form, confirm what will happen: "We'll send an invoice to jane@acme.com for $1,200"
 
 ---
 
