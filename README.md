@@ -1,6 +1,7 @@
 # forhumans
 ![forhumans banner](./forhumans-banner.png)
 > Agent skills built around people, not systems.
+> 
 [![skills.sh](https://skills.sh/b/srohan8/forhumans)](https://skills.sh/srohan8/forhumans)
 
 A collection of open-source agent skills built on one idea: **software should make sense to the humans using it, not just the people who built it.**
