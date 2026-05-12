@@ -1,18 +1,20 @@
 # forhumans
 
-> Claude skills built around people, not systems.
+> Agent skills built around people, not systems.
 
 [![skills.sh](https://skills.sh/b/srohan8/forhumans)](https://skills.sh/srohan8/forhumans)
 
-A collection of open-source skills for Claude — built on one idea: **software should make sense to the humans using it, not just the people who built it.**
+A collection of open-source agent skills built on one idea: **software should make sense to the humans using it, not just the people who built it.**
 
 ---
 
 ## What is a skill?
 
-A skill is a markdown file that gives Claude deep, specialised expertise in a specific domain. Drop it into any Claude project and Claude applies it automatically — no prompting, no repeating yourself.
+A skill is a markdown file that gives your AI agent deep, specialised expertise in a specific domain. Drop it into any project and your agent applies it automatically — no prompting, no repeating yourself.
 
 Think of it as hiring a specialist. Not a general assistant — someone who knows exactly how to do one thing really well, every time.
+
+Works with Claude Code, Cursor, Codex, GitHub Copilot, Windsurf, Gemini CLI, and any agent that reads markdown context files.
 
 ---
 
@@ -48,19 +50,27 @@ They never overlap — each handles a different layer of the same product.
 npx skills add srohan8/forhumans
 ```
 
-Installs all forhumans skills automatically. Works with Claude Code, Codex, and Cursor. Restart your agent after install.
+Installs all forhumans skills automatically. Works with Claude Code, Cursor, Codex, Windsurf, Gemini CLI, and more. Restart your agent after install.
 
 ### Claude Code (manual)
 
-Add `CLAUDE.md` to your project root — Claude Code picks it up automatically:
+```bash
+curl -O https://raw.githubusercontent.com/srohan8/forhumans/main/CLAUDE.md
+mkdir -p skills
+curl -o skills/messaging-ux/SKILL.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/messaging-ux/SKILL.md
+curl -o skills/flow-ux/SKILL.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/flow-ux/SKILL.md
+curl -o skills/accessibility-ux/SKILL.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/accessibility-ux/SKILL.md
+```
 
-    curl -O https://raw.githubusercontent.com/srohan8/forhumans/main/CLAUDE.md
+### Cursor / Codex / other agents (manual)
 
-Then add individual skills:
-
-    curl -o skills/messaging-ux.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/messaging-ux.md
-    curl -o skills/flow-ux.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/flow-ux.md
-    curl -o skills/accessibility-ux.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/accessibility-ux.md
+```bash
+curl -O https://raw.githubusercontent.com/srohan8/forhumans/main/AGENTS.md
+mkdir -p skills
+curl -o skills/messaging-ux/SKILL.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/messaging-ux/SKILL.md
+curl -o skills/flow-ux/SKILL.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/flow-ux/SKILL.md
+curl -o skills/accessibility-ux/SKILL.md https://raw.githubusercontent.com/srohan8/forhumans/main/skills/accessibility-ux/SKILL.md
+```
 
 ### Claude.ai projects
 
@@ -81,7 +91,7 @@ Click any skill below to open the raw file — copy and paste into your Claude p
 
 ## How it works in your project
 
-Skills are most powerful inside a project that contains your code. Claude will:
+Skills are most powerful inside a project that contains your code. Your agent will:
 
 - Infer your app's audience and tone without you having to explain
 - Audit your entire codebase, not just what you paste
