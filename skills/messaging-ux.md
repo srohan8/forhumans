@@ -1,6 +1,6 @@
 ---
 name: messaging-ux
-description: >
+description: >-
   Writes, rewrites, and reviews all in-product text through a human-centric lens.
   Covers: UI copy, button labels, error messages, empty states, success messages,
   loading states, onboarding flows, tooltips, help text, form hints, placeholders,
@@ -14,6 +14,12 @@ description: >
   trigger when given access to a codebase and asked to improve messaging, UX, or
   user communication. Always use this skill when messaging, copy, or UX writing
   is the subject — even for quick rewrites.
+license: MIT
+compatibility: Claude Code, Claude.ai projects, Cursor, Codex, any agent that reads markdown context files
+metadata:
+  author: srohan8
+  version: "1.0"
+  tags: ux-writing messaging copy human-centric product solo-founder
 ---
 
 # Messaging UX Skill
@@ -685,6 +691,46 @@ For non-technical audiences, swap these automatically:
 | Timeout | Took too long and stopped |
 | Abort | Cancel / stop |
 | Deprecated | No longer supported — switch to X |
+
+---
+
+## Scoring Copy Quality
+
+When asked to score or evaluate copy, rate it against these 5 dimensions.
+Each is scored 1–5. Total score is out of 25.
+
+| Dimension | 1 (Poor) | 3 (OK) | 5 (Great) |
+|-----------|----------|--------|-----------|
+| **Clarity** | Requires re-reading to understand | Understandable but could be cleaner | Instantly understood, zero ambiguity |
+| **Human language** | Jargon, tech terms, system-speak | Some plain language, some jargon | Fully in the user's vocabulary |
+| **Outcome focus** | Describes what the system does | Mix of system and user perspective | Describes what the user gets |
+| **Right length** | Way too long or too short | Close but could be trimmed or expanded | Exactly as long as it needs to be |
+| **Emotional fit** | Wrong tone for the moment | Neutral, not quite right | Matches the user's emotional state |
+
+### Output format for scoring
+
+```
+COPY SCORED: "[the text]"
+
+Clarity:        [1-5] — [one sentence why]
+Human language: [1-5] — [one sentence why]
+Outcome focus:  [1-5] — [one sentence why]
+Right length:   [1-5] — [one sentence why]
+Emotional fit:  [1-5] — [one sentence why]
+
+TOTAL: [X]/25
+
+VERDICT: [Poor / Needs work / Acceptable / Good / Excellent]
+BIGGEST FIX: [the single most impactful change]
+REWRITTEN: [your improved version]
+```
+
+### Score ranges
+- **20–25** Excellent — ship it
+- **15–19** Good — minor polish needed
+- **10–14** Needs work — rewrite the weakest dimensions
+- **5–9** Poor — start over with the human in mind
+- **1–4** Critical — this is actively confusing users
 
 ---
 

@@ -12,6 +12,8 @@ Each skill contains rules, patterns, and examples for a specific domain.
 ## Available skills
 
 - `skills/messaging-ux.md` — UX copy, help text, tooltips, errors, empty states, loading states, onboarding, notifications, pricing, trust moments, accessibility
+- `skills/flow-ux.md` — onboarding flows, error recovery, progressive disclosure, offboarding
+- `skills/accessibility-ux.md` — cognitive load, visual, motor, screen readers, keyboard navigation, plain language, forms, navigation
 
 ## Core philosophy
 

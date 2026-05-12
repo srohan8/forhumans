@@ -2,6 +2,8 @@
 
 > Claude skills built around people, not systems.
 
+[![skills.sh](https://skills.sh/b/srohan8/forhumans)](https://skills.sh/srohan8/forhumans)
+
 A collection of open-source skills for Claude — built on one idea: **software should make sense to the humans using it, not just the people who built it.**
 
 ---
@@ -40,7 +42,15 @@ They never overlap — each handles a different layer of the same product.
 
 ## Installation
 
-### Claude Code (recommended)
+### Skills CLI (recommended)
+
+```bash
+npx skills add srohan8/forhumans
+```
+
+Installs all forhumans skills automatically. Works with Claude Code, Codex, and Cursor. Restart your agent after install.
+
+### Claude Code (manual)
 
 Add `CLAUDE.md` to your project root — Claude Code picks it up automatically:
 

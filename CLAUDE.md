@@ -5,6 +5,8 @@ This project uses **forhumans** skills — a collection of Claude skills built a
 ## Active skills
 
 - [messaging-ux](./skills/messaging-ux.md) — human-centric UX copy, tooltips, errors, empty states, onboarding, and more
+- [flow-ux](./skills/flow-ux.md) — onboarding flows, error recovery, progressive disclosure, offboarding
+- [accessibility-ux](./skills/accessibility-ux.md) — cognitive load, visual, motor, screen readers, keyboard nav, plain language
 
 ## How to use
 
@@ -15,6 +17,9 @@ Claude reads these skills automatically. Just ask naturally:
 - "Audit the codebase for missing explanations"
 - "Rewrite this error message"
 - "Write a loading message for this API call"
+- "Design the onboarding flow for new users"
+- "Audit this screen for accessibility issues"
+- "What screens are missing from this flow?"
 
 ## Product profile
 
