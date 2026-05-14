@@ -22,9 +22,9 @@ Works with Claude Code, Cursor, Codex, GitHub Copilot, Windsurf, Gemini CLI, and
 
 | Skill | What it does | Best for |
 | --- | --- | --- |
-| [messaging-ux](https://github.com/srohan8/forhumans/blob/main/skills/messaging-ux/skills.md) | Writes and audits all in-product copy through a human-centric lens — tooltips, errors, empty states, loading states, onboarding, notifications, pricing, and more | Anyone building a product |
-| [flow-ux](https://github.com/srohan8/forhumans/blob/main/skills/flow-ux/skills.md) | Designs and audits user journeys — onboarding flows, error recovery, progressive disclosure, and respectful offboarding | Anyone shipping a product to non-experts |
-| [accessibility-ux](https://github.com/srohan8/forhumans/blob/main/skills/accessibility-ux/skills.md) | Audits and fixes accessibility across cognitive load, visual, motor, screen reader, plain language, forms, and navigation — translated into plain language and concrete code | Anyone building for real humans |
+| [messaging-ux](https://github.com/srohan8/forhumans/blob/main/skills/messaging-ux/skill.md) | Writes and audits all in-product copy through a human-centric lens — tooltips, errors, empty states, loading states, onboarding, notifications, pricing, and more | Anyone building a product |
+| [flow-ux](https://github.com/srohan8/forhumans/blob/main/skills/flow-ux/skill.md) | Designs and audits user journeys — onboarding flows, error recovery, progressive disclosure, and respectful offboarding | Anyone shipping a product to non-experts |
+| [accessibility-ux](https://github.com/srohan8/forhumans/blob/main/skills/accessibility-ux/skill.md) | Audits and fixes accessibility across cognitive load, visual, motor, screen reader, plain language, forms, and navigation — translated into plain language and concrete code | Anyone building for real humans |
 
 More skills coming. See [Contributing](#contributing) if you want to add one.
 
